@@ -32,3 +32,4 @@ override.tf.json
 
 # kubeconfig file for the cluster
 kubeconfig
+output*

@@ -24,4 +24,5 @@ resource "null_resource" "argocd-02" {
   triggers = {
     cluster_id = civo_kubernetes_cluster.cluster.id
   }
+  depends_on = [ null_resource.argocd-01 ]
 }
