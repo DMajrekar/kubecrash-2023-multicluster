@@ -42,6 +42,6 @@ spec:
         path: "{{ path }}"
         repoURL: https://github.com/DMajrekar/kubecrash-2023-multicluster.git
       syncPolicy:
-        automated: {}
-
-      
+        automated:
+          prune: true
+          selfHeal: true

@@ -1,12 +1,12 @@
 resource "null_resource" "argocd-01" {
   provisioner "local-exec" {
-    command     = "kustomize build ${var.argocd_path} | kubectl apply -f - --kubeconfig <(echo $KUBECONFIG | base64 --decode) > output-01"
+    command     = "kustomize build ${var.argocd_path} | kubectl apply -f - --kubeconfig <(echo $KUBECONFIG | base64 --decode) > output-01 || true"
     interpreter = ["/bin/bash", "-c"]
     environment = {
       KUBECONFIG = base64encode(civo_kubernetes_cluster.cluster.kubeconfig)
     }
-
   }
+
   triggers = {
     cluster_id = civo_kubernetes_cluster.cluster.id
   }
