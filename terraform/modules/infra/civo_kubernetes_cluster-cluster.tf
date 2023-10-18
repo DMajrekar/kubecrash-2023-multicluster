@@ -1,5 +1,5 @@
 resource "civo_kubernetes_cluster" "cluster" {
-  name        = "${var.name_prefix}cluster"
+  name        = "${var.name_prefix}-cluster"
   firewall_id = civo_firewall.firewall.id
   network_id = civo_network.network.id
 
