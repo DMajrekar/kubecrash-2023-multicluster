@@ -1,4 +1,14 @@
 ---
 resources:
   - ../../base
-  - appset.yaml
+
+patches:
+  - patch: |-
+      - op: add
+        path: /spec/generators/0/git/directories
+        value:
+          - path: 'argo/*/env/nyc'
+    target:
+      kind: ApplicationSet
+      name: root
+      namespace: argocd

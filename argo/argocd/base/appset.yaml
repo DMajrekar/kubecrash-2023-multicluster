@@ -10,8 +10,7 @@ metadata:
 spec:
   generators:
     - git:
-        directories:
-          - path: "argo/*/env/nyc"
+        directories: []
         repoURL: https://github.com/DMajrekar/kubecrash-2023-multicluster.git
         revision: ""
         template:
