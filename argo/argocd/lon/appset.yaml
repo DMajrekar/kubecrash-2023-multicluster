@@ -1,0 +1,44 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  creationTimestamp: null
+  name: root
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        directories: "argo/*/env/lon"
+        repoURL: https://github.com/DMajrekar/kubecrash-2023-multicluster.git
+        requeueAfterSeconds: 120
+        revision: ""
+        template:
+          metadata: {}
+          spec:
+            destination: {}
+            project: ""
+            source:
+              repoURL: ""
+  syncPolicy:
+    preserveResourcesOnDeletion: true
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/managed-by: argocd-autopilot
+        app.kubernetes.io/name: "{{ path[1] }}"
+      name: "{{ path[1] }}"
+      namespace: argocd
+    spec:
+      destination:
+        server: https://kubernetes.default.svc
+      ignoreDifferences:
+        - group: argoproj.io
+          kind: Application
+          jsonPointers:
+            - /status
+      project: default
+      source:
+        path: "{{ path }}"
+        repoURL: https://github.com/DMajrekar/kubecrash-2023-multicluster.git
