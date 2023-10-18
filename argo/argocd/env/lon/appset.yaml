@@ -13,7 +13,6 @@ spec:
         directories:
           - path: "argo/*/env/lon"
         repoURL: https://github.com/DMajrekar/kubecrash-2023-multicluster.git
-        requeueAfterSeconds: 120
         revision: ""
         template:
           metadata: {}
