@@ -96,6 +96,7 @@ step9:
 
 # Show the nodes in the NYC cluster
 step10:
+	@echo
 	@echo "Nodes in the NYC cluster"
 	@echo
 	kubectl --kubeconfig=terraform/nyc/kubeconfig get nodes
