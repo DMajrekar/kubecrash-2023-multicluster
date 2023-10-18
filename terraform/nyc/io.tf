@@ -9,7 +9,7 @@ variable "region" {
 variable "name_prefix" {
   description = "Prefix to append to the name of the cluster being created"
   type        = string
-  default     = "tf-template-"
+  default     = "nyc-demo-"
 }
 
 variable "cluster_node_size" {

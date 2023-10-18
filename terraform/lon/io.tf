@@ -9,20 +9,9 @@ variable "region" {
 variable "name_prefix" {
   description = "Prefix to append to the name of the cluster being created"
   type        = string
-  default     = "tf-template-"
+  default     = "lon-demo-"
 }
 
-variable "cluster_node_size" {
-  type        = string
-  default     = "g4s.kube.medium"
-  description = "The size of the nodes to provision. Run `civo size list` for all options"
-}
-
-variable "cluster_node_count" {
-  description = "Number of nodes in the default pool"
-  type        = number
-  default     = 3
-}
 
 # Firewall Access
 variable "kubernetes_api_access" {
